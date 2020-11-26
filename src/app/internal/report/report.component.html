@@ -14,7 +14,7 @@
                 <th>{{user.value.name}}</th>
                 <td>{{user.value.mobile}}</td>
                 <td>{{user.value.email}}</td>
-                <button class="btn btn-small btn-warning" (click)="deleteUser(user.value.email)" type="submit">delete
+                <button class="btn btn-small btn-warning" *ngIf="user.value.designation==='A'" (click)="deleteUser(user.value.email)" type="submit">delete
                 </button>
             </tbody>
         </ng-container>

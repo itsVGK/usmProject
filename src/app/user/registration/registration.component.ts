@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
     this.registerUserForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       gender: new FormControl('', [Validators.required]),
-      mobile: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,10}')]),
+      mobile: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
       email: new FormControl('', [Validators.email, Validators.required]),
       designation: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
@@ -33,7 +33,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser = () => {
-    console.log(this.registerUserForm)
     if (this.registerUserForm.status === 'VALID')
 
       this._httpService.registerUserService(this.registerUserForm.value).subscribe((isUserSaved: any) => {

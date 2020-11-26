@@ -1,38 +1,35 @@
-<div class="row">
+<h2>Register to access our services</h2>
+
+<div class="col-md-10 offset-md-1 justify-content-center mt-5">
     <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
-
-        <h2>Register to access our services</h2>
-
         <div class="form-group">
-            <label for="name">Name *
-                <input class="form-control" type="text" formControlName="name" required>
-                <p *ngIf="registerUserForm.get('name').hasError('required') && 
+            <label for="name">Name *</label>
+            <input class="form-control" type="text" formControlName="name" required placeholder="Jacob">
+            <p *ngIf="registerUserForm.get('name').hasError('required') && 
                     !registerUserForm.get('name').pristine">
-                    Name is required
-                </p>
-            </label>
+                Name is required
+            </p>
         </div>
 
         <div class="form-group">
-            <label for="gender">Gender *
-                <select class="form-control" formControlName="gender">
-                    <option value="M">Male </option>
-                    <option value="F">Female </option>
-                    <option value="Others">Not Intended to Share </option>
-                </select>
+            <label for="gender">Gender *</label>
+            <select class="form-control" formControlName="gender">
+                <option value="M">Male </option>
+                <option value="F">Female </option>
+                <option value="Others">Not Intended to Share </option>
+            </select>
 
-                <p *ngIf="registerUserForm.get('gender').hasError('required') && 
+            <p *ngIf="registerUserForm.get('gender').hasError('required') && 
                     !registerUserForm.get('gender').pristine">
-                    Gender is required
-                </p>
+                Gender is required
+            </p>
 
-            </label>
         </div>
 
         <div class="form-group">
-            <label for="mobile">Mobile Number *
-                <input class="form-control" type="text" formControlName="mobile" required>
-            </label>
+            <label for="mobile">Mobile Number *</label>
+            <input class="form-control" type="text" formControlName="mobile" required
+                placeholder="Excluding +91 (10 Digits)">
 
             <p *ngIf="(registerUserForm.get('mobile').hasError('required') || registerUserForm.get('mobile').hasError('pattern') )
              && !registerUserForm.get('mobile').pristine">
@@ -42,9 +39,8 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Email *
-                <input class="form-control" type="email" formControlName="email" required>
-            </label>
+            <label for="email">Email *</label>
+            <input class="form-control" type="email" formControlName="email" required placeholder="abc@gmail.com">
             <p *ngIf="registerUserForm.get('email').errors && 
                     !registerUserForm.get('email').pristine">
                 Provide Correct Email ID
@@ -53,25 +49,24 @@
         </div>
 
         <div class="form-group">
-            <label for="designation">Designation *
-                <select formControlName="designation" class="form-control">
-                    <option *ngFor="let desn of designationGrp" [ngValue]="desn.value">
-                        {{desn.name}}
-                    </option>
-                </select>
+            <label for="designation">Designation *</label>
+            <select formControlName="designation" class="form-control">
+                <option *ngFor="let desn of designationGrp" [ngValue]="desn.value">
+                    {{desn.name}}
+                </option>
+            </select>
 
-                <p *ngIf="registerUserForm.get('designation').hasError('required') && 
+            <p *ngIf="registerUserForm.get('designation').hasError('required') && 
                     !registerUserForm.get('designation').pristine">
-                    Designation is required
-                </p>
+                Designation is required
+            </p>
 
-            </label>
         </div>
 
         <div class="form-group">
-            <label for="password">Password *
-                <input class="form-control" type="password" formControlName="password" required>
-            </label>
+            <label for="password">Password *</label>
+
+            <input class="form-control" type="password" formControlName="password" required placeholder="Min Length 8">
 
             <p *ngIf="(registerUserForm.get('password').hasError('required')||registerUserForm.get('password').hasError('minlength') )
             && !registerUserForm.get('password').pristine">

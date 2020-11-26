@@ -1,14 +1,13 @@
-<h1>Login</h1>
+<h1 id='login'>Login</h1>
 
 <div class="row">
 
-    <div class="col offset-md-3">
+    <div class="col-md-8 offset-md-2 justify-content-center" id='formDiv'>
         <form [formGroup]='loginForm' (ngSubmit)='login()'>
             <div class="col form-group">
-                <label for="userId">User Name
-                    <input type="text" class="form-control" formControlName="userId" required
-                        placeholder="EMail Id/ Mobile Number">
-                </label>
+                <label for="userId">User Name</label>
+                <input type="text" class="form-control mt-1" formControlName="userId" required
+                    placeholder="EMail Id/ Mobile Number">
                 <div *ngIf="loginForm.get('userId').errors && 
             !loginForm.get('userId').pristine">
                     Provide Correct User ID
@@ -16,17 +15,16 @@
             </div>
 
             <div class="col form-group">
-                <label for="userPassword">Password
-                    <input type="password" class="form-control" formControlName="userPassword" required
-                        placeholder="min length 8">
-                </label>
+                <label for="userPassword">Password</label>
+                <input type="password" class="form-control" formControlName="userPassword" required
+                    placeholder="min length 8">
                 <div *ngIf="loginForm.get('userPassword').errors && 
             !loginForm.get('userPassword').pristine">
                     Provide Correct Password
                 </div>
             </div>
 
-            <button class="btn btn-success mb-4" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+            <button class="btn btn-success m-4" type="submit" [disabled]="!loginForm.valid">Sign In</button>
 
             <p>New User Click <a href="user/register">here</a> to Register</p>
         </form>
