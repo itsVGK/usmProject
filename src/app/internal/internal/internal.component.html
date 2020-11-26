@@ -1,0 +1,17 @@
+<div class="row">
+
+    <div class="col-3">
+        <ng-container *ngFor="let ele of page | keyvalue">
+            <div class="row box dummy" id={{ele.value.pk}} (click)="setPage(ele.value.pk)">
+                {{ele.value.name}}</div>
+        </ng-container>
+    </div>
+
+    <div class="col">
+        <div *ngIf="dir==='d'">
+            Hi {{userSession.name}}
+        </div>
+        <app-report *ngIf="dir==='r'" [designation]="this.userSession.desgn"></app-report>
+    </div>
+
+</div>

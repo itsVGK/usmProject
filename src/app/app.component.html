@@ -1,0 +1,9 @@
+<div class="container container-fluid mt-5">
+
+    <div class="row">
+        <button *ngIf="isLoggedIn" type="submit" class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>

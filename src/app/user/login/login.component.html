@@ -1,0 +1,34 @@
+<h1>Login</h1>
+
+<div class="row">
+
+    <div class="col offset-md-3">
+        <form [formGroup]='loginForm' (ngSubmit)='login()'>
+            <div class="col form-group">
+                <label for="userId">User Name
+                    <input type="text" class="form-control" formControlName="userId" required
+                        placeholder="EMail Id/ Mobile Number">
+                </label>
+                <div *ngIf="loginForm.get('userId').errors && 
+            !loginForm.get('userId').pristine">
+                    Provide Correct User ID
+                </div>
+            </div>
+
+            <div class="col form-group">
+                <label for="userPassword">Password
+                    <input type="password" class="form-control" formControlName="userPassword" required
+                        placeholder="min length 8">
+                </label>
+                <div *ngIf="loginForm.get('userPassword').errors && 
+            !loginForm.get('userPassword').pristine">
+                    Provide Correct Password
+                </div>
+            </div>
+
+            <button class="btn btn-success mb-4" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+
+            <p>New User Click <a href="user/register">here</a> to Register</p>
+        </form>
+    </div>
+</div>

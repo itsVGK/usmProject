@@ -1,0 +1,24 @@
+<div class="row">
+
+    <table class="table table-borderless" *ngIf="users.size>0">
+        <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let user of users| keyvalue ">
+            <tbody>
+                <th>{{user.value.name}}</th>
+                <td>{{user.value.mobile}}</td>
+                <td>{{user.value.email}}</td>
+                <button class="btn btn-small btn-warning" (click)="deleteUser(user.value.email)" type="submit">delete
+                </button>
+            </tbody>
+        </ng-container>
+    </table>
+
+    <div *ngIf="users.size<1">No Users details were available</div>
+</div>
